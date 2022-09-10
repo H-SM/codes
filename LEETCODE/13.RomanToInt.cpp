@@ -12,7 +12,7 @@ void romantoInt(string s)
     roman['D']=500;
     roman['M']=1000;
     int sum=0;
-    char prev=NULL;
+    char prev='0';
     for(auto i : s){
         if(roman[prev]<roman[i]){
             int res=roman[i]-roman[prev];
