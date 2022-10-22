@@ -1,0 +1,43 @@
+5 pigeons and 4 pegion holes
+
+|pp| |p| |p| |p| <- this will be how they will be put like
+
+divsubs
+<divisible subset>
+subset who's sum is divisible by N <size of set> else -1
+                            ^
+just prove a subarray for this always exist 
+<pigeonhole principle>
+in lineartime 
+
+
+1 2 3 5 7 <arr
+1 3 6 11 18 < sum till that index     N=5
+
+subarray = (b-a)%N =0
+            -> b%N = a%N
+
+1 3 1 1 3< % all values with N <from sum>
+0 -> answer there 
+1,1 -> subtract 2 same %
+<atleast 2 will have same , 5 numbers in 4 baskets>
+
+Gray similar code
+N 64 bit int
+ai and ai+1 has only one bit change,  find 4 integer if xor is zero
+ai ^ai+1 -> 000010 only one 1
+
+if N>=130 always yes 
+< we will have 65 pairs and only 1 bit would be set in the xor, indexed to 0-63 loci 
+os we have 64 pos and 65 answers, so at least 2 pairs will has same values<bit 1 at sme loci>>
+
+if N<130
+brute force method 
+find a^b^c^d =0
+make 3 loops to find A^b^c and make -> a^b^c=d
+
+2 options - 
+> sorting + binary search for d
+> hashing 
+
+
