@@ -1,0 +1,27 @@
+Mathematical Expectation
+
+Exp = Avg value of a Random VAriable<outcome of experiment>
+E[X}=Summation [x.P(x)] != most probable value, but Average will be close to this result 
+
+Linearity of Expectation 
+E[x1+x2]=E[x1]+E[x2]
+
+Bernaulli's Trial 
+ exactly 2 outcomes , Head or Tail ,  prime or not prime , yes or no
+
+Theorum 1- expected number of trial's is -> 1/N 
+Theorum 2- expected value of successes in n trial -> np
+
+choose number , N students choose 1-100 , prob expected a numebr choosen by n students
+
+np -> 9p/100
+
+Coupon collector 
+'N' distinct coupon , packets has coupon , how many packets needed to get all coupons?
+e[xi]->no. of paacks to grab ith new coupon
+e[x]=e[x1]+e[x2].......+e[xn]
+
+Prob of ith new coupon = avbl coupon / total coupon = n-(i-1)/n 
+e[xi]=n/n-i+1
+e[x] = ....... add all
+    

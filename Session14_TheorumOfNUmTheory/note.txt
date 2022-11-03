@@ -1,0 +1,74 @@
+Modulo Arthematic
+Two numbers are congruent modulo a given number if they give same remainder when divided by that number 
+eg- 1 and 6 for 5
+1(mod 5)=6(mod 5)
+
+how many binary strings of length n are possible ?? permutaion if 5 distint -> 2^5 
+what if n=1000 which will have 2^1000 another example nth fibnacci number ( too big )
+
+for these problems with soo big number ,  we do modulo of a prime is taken 
+this makes calc easier.. why-? will see later 
+
+(5+3)%5 = 3 <dont make a huge number as it will make calc more to break it again 
+f(1000) = ......too big 
+what if i want fib nth %5 -> 1,1,2,3,0,3 this is given which makes calc easier 
+21% 5 = [13%5 + 8%5 ]%5 = [[[10%5 + 3%5]%5]+8%5]%5 = 1
+
+now let's code out modulo of addition , subtraction ,  division and multiplication modulo 
+
+###Ref AddMod.cpp###
+
+for SUbtraction -> 
+ n= p*q+ r 
+ p > r >= 0
+
+    -4 -3 -2 -1 0 
+%5-> 1  2  3  4 0 
+
+for Multiplication ->
+(a*b)%p=[(a%p)*(b%p)]%p
+
+Fermat's theorum 
+a^p is congruent to a(mod p) p has to be prime -> 
+7^5 congruent to 7(mod 5)
+eg- (50/2)%5 how to do (a/b) this is -> a x b^-1
+    (50. 2^-1)%5  since, a^p-2 congruent to a^-1 ( mod p)
+    [ 50%5 . 2^3%5 ]%5 using fast expo,
+    [ 50%5 . p-2 =>3] %5 
+
+Factorials in a modulo 
+5!= 4! x 5 
+(5!) %7= (4!)%7 x 5%7
+
+nCr %P->
+n!/r! (n-r)!
+-> [n!%p x [(r!)^-1% mod p]x[(n-r)!% p ]]%p
+
+Chinese Remainder theorum -> 
+x%3 =2 
+x%5 =3 
+x%7 =4 
+what is x?
+x= A + B + C 
+= a . 3. 5+ b. 3.7+ c.5.7 
+if we mod 3 - > 0+ 0+ (c . 2)%3 -> c=1
+if we mod 7 - > (a.1)%7+0+0  -> a=4
+if we mod 5- >  0+(b.21 or 1)%5+0 -> b=3
+x= 60 + 63 + 35
+ = 158
+
+Eular's totient Functions 
+Number of integers less than n which are co prime to n 
+x<=n and gcd(x,n)=1
+phy(n)= n (for all primes)(1-1/p)
+
+
+0(N) with brute 
+
+gcd(x,n)=g 
+gcd(n/g,n/g)=g/g =1
+gcd(x',n')=1
+n'=n/g
+this is, 
+phy(n')
+##ref Totient.cpp###

@@ -1,0 +1,142 @@
+GCD Greatest common Divisor 
+what-?
+8 and 20 , find x which divides 8 and 20 , and is tha largest 
+at max -> min ( 8,20)
+brute force is a method but it isnt waay too good o(min ( a,b))
+pen and paper -> Euclid's GCD algorithm 
+. keep largest number in the box , and divide till which point it divides do it 
+. once 0 comes gcd is the remainder to it 
+-> gcd(a,b)= gcd(b,a%b)
+-> gcd(a,0)=a 
+###code in EuclidAlgo.cpp###
+
+GCD Complexity of Euclid Algo -> gcd(a,b)= gcd(b,a%b) 
+    a%b -> x 
+    0 <= x <= b  --1
+    a%b= a- floor(a/b)b 
+            39%14 = 39-floor(39/14)14= 39- 28=11
+
+    therefore, a%b <= a-b  --2
+
+    from 1 and 2, 
+    x<= a-b
+    2x<= a-b 
+    2x<= a-b+b-1
+    2x<=a 
+    x<a/2
+    thus, gcd(a,b)= gcd(b,a/2)= gcd(a/2,a/2 % b) 
+    gcd(a,b)= log2 a = lg a thus,o(lg a)
+
+Extended Euclidean algorithm
+
+Ax + By = gcd(A,B) --1
+Applications-> 
+. Multiplicative Modulo Inverse 
+. Linear Diophantine Equations
+
+how-? 
+Ax+ By = gcd(A,B)= GCD(b, a%b)
+Bx1 + (A%B)y1= GCD(b,a%b) 
+A%B = a-floor(a/b) B
+
+Bx1+(A-(floor(a/b))By1)=GCD(a.b)
+B(x1-[a/b]y1)+Ay1= GCD (A,B) -- 2
+By           +Ax = GCD (A,B) -- 1
+
+this gives, 
+x=y1 & y= x1-[a/b]y1 
+this is , extended Euclidean algorithm 
+
+why -? where -? 
+A=18 , B=30 
+18x+30y= GCD(18,30)= gcd(30,18)<-% = 30x1 + ...y1 
+18x2+12y2=gcd(18,12)
+12x3+6y3=gcd(12,6)
+6x4+0y4=gcd(6,0)=6
+therefore, x4= 1, y4=0 
+using Euclidean algorithm,
+x3= y4=0
+y3= x4-[a/b]y4= 1-[12/6]0= 1
+
+x2=y3=1
+y2=x3- [a/b]y3=0-[12/6]1=0-1.1=-1
+
+x1=y2=-1
+y1=x2-[a/b]y2=1-[30/18](-1)=1-(-1)=2
+###Euclidean.cpp###
+
+Multiplicative Modulo Inverse 
+
+given two integers 'a' and 'm', find modular Multiplicative inverse of <<<'a' under modulo 'm'>>>.
+the modular Multiplicative inverse is an integer 'x' such that, 
+a x = 1(mod m)
+<congruent to > 
+(a * x)% m =1
+1 <= x <= m-1
+
+MMI only exist IIF,  a and m are relatively prime ie, gcd(a,m)=1 >>>
+eg -> a=8, m=7 
+
+Extended Euclid's algo for MMI
+Ax + By = gcd(a,b)
+and gcd (a,m)=1
+b=m ->
+
+aX + mY =gcd(a,m)=1
+(aX)%m + 0 = 1(mod m)
+aX)%m =1 
+aX = 1(mod m)<approx>
+
+x gives MMI
+###ref MMI.cpp###
+
+Linear Diophantine Equation
+
+25x + 45 y=400 
+find integral solution of x and y
+if one solution exist for this equation , then there will be infinite many too
+so, find a general equation for it.
+
+ax+by=c
+a,b,c are given.
+
+ax+by=c 
+and  gcd (a,b) =g; thus, a=g. k1 and b= g. k2 
+
+g.k1 x + g. k2 y= c 
+
+k1 x + k2 y =c/g
+
+solution only iff c%g ==0 this is the solution satisfactory 
+
+how to find it - ?
+c= Kg if divisible -- 1
+
+Xo and Yo be the values that solve the equation 
+
+aXo + bYo = C 
+
+aX + By = gcd(a,b)
+using extended Euclid mthd, x' , y' are the soln to it. 
+ax' + by' = gcd(a,b) -- 2
+
+compare 1 and 2,
+a(x'k)+ b(y'k)= k gcd(a,b )
+Xo = k x'
+Yo = k y'
+k -> c/gcd(a,b)
+not this is one soln , of Xo and Yo 
+generalized solution-> 
+having the infinite many soln<family of soln.> 
+{x,y} = Xo + [b/g](t)
+        Yo - [a/g](t)
+g=gcd(a,b)
+t= 1,2,3,4,.......infinite
+replace Xo with this and Yo with other equation
+ 
+ becomes- > 
+ a[Xo + {b/g}(t)]+ b[Yo -{a/g}(t)]
+ = aXo + abt/g +bYo -abt/g
+ = aXo +bYo = c 
+  
+

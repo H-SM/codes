@@ -41,3 +41,17 @@ make 3 loops to find A^b^c and make -> a^b^c=d
 > hashing 
 
 
+HOLIDAY 
+
+Total distance= 
+n1. e1+n2. e2+...........+nN. eN <weighted sum of eedges>
+n1,n2,n3----- -> max number of people through that edge 
+<greedy approach> finding multiple local maxima and find total dist>
+do DFS in each part for that edge and find minimum units that will go through that edge 
+
+A made a call on B , calls C and that calls d , D cant call , no child  we get N= 4 calls -1 
+min(3,N-3) -> other part of tree has N-i 
+2*min(i,N-i)*dist for each edge and add
+###HOLIDAY.cpp###
+
+
